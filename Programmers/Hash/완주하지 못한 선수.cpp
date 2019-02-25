@@ -7,6 +7,7 @@ using namespace std;
 string solution(vector<string> participant, vector<string> completion) 
 {
     string answer = "";
+    
     multiset<string> p;
     
     for (int i = 0; i < participant.size(); i++)
