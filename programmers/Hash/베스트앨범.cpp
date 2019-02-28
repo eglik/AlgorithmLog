@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <vector>
 #include <set>
@@ -7,12 +6,12 @@
 
 using namespace std;
 
-vector<int> solution(vector<string> genres, vector<int> plays) 
+vector<int> solution(vector<string> genres, vector<int> plays)
 {
 	vector<int> answer;
-	
+
 	multimap<int, pair<string, int>, greater<int>> list;
-	unordered_multimap<string, pair<int, int>> sortList;
+	multimap<string, pair<int, int>> sortList;
 	unordered_map<string, int> genreList;
 	map<int, string, greater<int>> temp;
 
@@ -26,8 +25,8 @@ vector<int> solution(vector<string> genres, vector<int> plays)
 	{
 		sortList.insert(pair<string, pair<int, int>>(iter->second.first, pair<int, int>(iter->first, iter->second.second)));
 	}
-
-	for (unordered_multimap<string, pair<int, int>>::iterator iter = sortList.begin(); iter != sortList.end(); iter++)
+    
+	for (multimap<string, pair<int, int>>::iterator iter = sortList.begin(); iter != sortList.end(); iter++)
 	{
 		genreList.find(iter->first)->second += iter->second.first;
 	}
@@ -41,37 +40,16 @@ vector<int> solution(vector<string> genres, vector<int> plays)
 
 	for (map<int, string>::iterator iter = temp.begin(); iter != temp.end(); iter++)
 	{
-		genreList.insert(pair<string, int>(iter->second, iter->first));
-	}
-
-	for (unordered_map<string, int>::iterator iter = genreList.begin(); iter != genreList.end(); iter++)
-	{
-		if (sortList.count(iter->first) > 1)
+        if (sortList.count(iter->second) > 1)
 		{
-			answer.push_back((sortList.equal_range((*iter).first).first)->second.second);
-			answer.push_back((++(sortList.equal_range((*iter).first).first))->second.second);
+			answer.push_back((sortList.equal_range((*iter).second).first)->second.second);
+			answer.push_back((++(sortList.equal_range((*iter).second).first))->second.second);
 		}
-		else if(sortList.count(iter->first) == 1)
+		else if (sortList.count(iter->second) == 1)
 		{
-			answer.push_back((sortList.equal_range((*iter).first).first)->second.second);
+			answer.push_back((sortList.equal_range((*iter).second).first)->second.second);
 		}
 	}
 
 	return answer;
-}
-
-void main()
-{
-	vector<string> t1a = { "classic", "pop", "classic", "classic", "pop" };
-	vector<int> t1b = { 500, 600, 150, 800, 2500 };
-	vector<int> a;
-	a = solution(t1a, t1b);
-
-	cout << "[";
-	for (int i = 0; i < a.size() - 1; i++)
-	{
-		cout << a[i] << ", ";
-	}
-	cout << a[a.size() - 1];
-	cout << "]";
 }
