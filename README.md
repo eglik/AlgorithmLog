@@ -1,2 +1,4 @@
-# AlgorithmLog
-알고리즘에 대해 공부한 내용들을 정리해두는 저장소입니다.
+![](https://img.shields.io/github/languages/top/eglik/AlgorithmLog.svg?color=brightgreen) ![](https://img.shields.io/github/languages/count/eglik/AlgorithmLog.svg)
+
+## AlgorithmLog
+This is repository what I study about algorithm.
