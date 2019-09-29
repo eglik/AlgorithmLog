@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 class InterestingParty
     {
-        public static int bestInvitation(string[] first, string[] second)
+        public int bestInvitation(string[] first, string[] second)
         {
             Dictionary<string, int> bestTopics = new Dictionary<string, int>();
 
