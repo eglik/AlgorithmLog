@@ -3,7 +3,7 @@
 ## AlgorithmLog
   Site  | Language
   ------------- | -------------
-  [acmicpc](https://www.acmicpc.net/)  | Mixed (C++, C#, Rust)
+  [boj](https://www.acmicpc.net/)  | C++
   [codeforces](https://www.topcoder.com/)  | C++
   [programmers](https://programmers.co.kr/)  | C++
   [topcoder](https://www.topcoder.com/)  | C#
