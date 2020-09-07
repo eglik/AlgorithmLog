@@ -11,6 +11,7 @@
 ### C++ Algorithm Template
 ```
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <algorithm>
 #include <math.h>
